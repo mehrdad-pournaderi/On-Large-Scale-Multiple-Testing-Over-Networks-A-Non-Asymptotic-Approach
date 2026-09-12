@@ -15,7 +15,7 @@ The monitoring-network experiments of the paper (Section VII) are driven by:
   sweep_quiet_nodes.py      Experiment 1    (sim_localbh_break.png)
   mn_sweep.py               Experiments 2-6 (sim_mn_{mu,rho,n,cauchy,alpha}.png)
   bonus_sweep.py            BONuS-GA overlay on the same seeds
-  bonus_mechanism_test.py   Table I ablation (m_hub = 250)
+  ablation_fixedbag.py      Table I paired fixed-bag ablation (m_hub = 250)
   replot.py                 re-draw all figures from saved .npz
 
 The __main__ block below runs an older 5-node configuration kept for

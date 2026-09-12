@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+outputs/_mn_*
+outputs/_qn_*
+outputs/_prov_*
+outputs/*.png

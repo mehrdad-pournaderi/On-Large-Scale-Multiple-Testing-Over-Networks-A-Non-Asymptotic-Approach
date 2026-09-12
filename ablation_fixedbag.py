@@ -8,7 +8,7 @@ before each arm), so pairwise contrasts isolate one design choice at a time:
   allocation noise (oracle r0 weights): (2) vs (1)
   bag size (c=4): (3) vs (1)
   budgeted certificate vs its heuristic siblings: (5)
-Seeds match bonus_mechanism_test.py (424242 + 6661*t), NT=200.
+Seeds: 424242 + 6661*t, NT=200 (matching the earlier unpaired ablation).
 Writes outputs/sim_ablation_fixedbag.npz with per-trial fdp/pwr arrays per arm.
 """
 import numpy as np, time
