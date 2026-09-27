@@ -8,6 +8,7 @@ before each arm), so pairwise contrasts isolate one design choice at a time:
   allocation noise (oracle r0 weights): (2) vs (1)
   bag size (c=4): (3) vs (1)
   budgeted certificate vs its heuristic siblings: (5)
+  CFGA+Storey+adaptive eps reference, same trials: (8)
 Seeds: 424242 + 6661*t, NT=200 (matching the earlier unpaired ablation).
 Writes outputs/sim_ablation_fixedbag.npz with per-trial fdp/pwr arrays per arm.
 """
@@ -40,6 +41,8 @@ ARMS = {
  'budget_prop':      lambda pv,isn,rng: bp.bonus_cfga_pernode_budget(pv,isn,ALPHA,eps,rng,c=1.,allocation='proportional'),
  'global_prop':      lambda pv,isn,rng: s.bonus_cfga(pv,isn,ALPHA,eps,rng,c=1.,allocation='proportional'),
  'pernode_prop':     lambda pv,isn,rng: _pernode_prop(pv,isn,rng),
+ 'cfga_storey_ada':  lambda pv,isn,rng: s.method_A_prime_storey_adaptive(
+                         pv,isn,ALPHA,s._eps_grid_for(sum(m_per_node),ALPHA),rng),
 }
 def _pernode_prop(pv,isn,rng):
     # per-node calibration on a PROPORTIONAL bag: temporarily swap the

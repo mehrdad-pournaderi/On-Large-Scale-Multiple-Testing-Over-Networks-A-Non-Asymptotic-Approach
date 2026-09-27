@@ -26,6 +26,7 @@ the winner's-curse bias that breaks the original asymptotic guarantee.
 | `prov_sweep.py` | provable-tier overlays (inflated e-CFGA, budgeted BONuS-GA) |
 | `ablation_fixedbag.py` | Table 1: paired fixed-bag ablation (identical realized bag per arm; paired ±2SE) |
 | `rho_hubsonly.py` | hubs-only AR(1) companion run (quiet nulls i.i.d.) |
+| `random_labels.py` | random-label companion run (multinomial node sizes, covered by the CFGA theorems) |
 | `replot.py` | redraws all six figures from the stored `.npz` results, no recomputation |
 
 ## Reproducing the experiments
@@ -41,6 +42,7 @@ python prov_sweep.py quiet ecfga_inf     # provable tiers, per axis/method
 python prov_sweep.py assemble
 python ablation_fixedbag.py              # Table 1 (paired, with 2SE)
 python rho_hubsonly.py                   # hubs-only dependence companion
+python random_labels.py                  # random-label companion (CFGA certificates)
 python replot.py                         # figures from the .npz files
 ```
 
@@ -55,7 +57,8 @@ paper's figures and tables, so figures can be restyled and numbers
 re-analyzed without rerunning anything: `sim_<experiment>.npz` with arrays
 `x`, `fdr_<method>`, `pwr_<method>`; per-trial arrays for the paired
 ablation (`sim_ablation_fixedbag.npz`) and the hubs-only companion run
-(`sim_rho_hubsonly.npz`). Rerunning a driver additionally creates per-point
+(`sim_rho_hubsonly.npz`), and the random-label companion run
+(`sim_random_labels.npz`). Rerunning a driver additionally creates per-point
 resume caches (`_mn_*`, `_qn_*`, `_prov_*`), which also store 2·SE per
 method.
 
